@@ -5,7 +5,7 @@ import os
 
 log_file_path = path.join(path.dirname(path.abspath(__file__)), 'log.conf')
 
-server_log_path = "/data/server/crawl/"
+server_log_path = "/data/server/logs/crawl/"
 
 
 def init():
