@@ -1,9 +1,10 @@
 # coding=utf-8
+import logging
 from abc import ABCMeta, abstractmethod, abstractproperty
 
-
 from db.third_post_db import third_post_db
-import logging
+from conf.logger import log
+
 
 # 爬虫基类
 class Crawler:
@@ -32,5 +33,5 @@ class Crawler:
                         l.like_num, l.comment_num, l.redirect_url, l.creatime)
                 r_list.append(item)
             # 批量入库
-            logging.info("执行db操作,%s文章入库", self.third_name)
+            log.info("执行db操作,%s文章入库", self.third_name)
             third_post_db.batch_insert(r_list)
