@@ -17,7 +17,7 @@ class _ThirdPostDB:
         except Exception as e:
             log.info("执行Mysql: %s 时出错：%s" % (sql, e))
 
-    # 批量插入文章
+    # 批量插入
     def batch_insert(self, list):
 
         db = mysql_db.mysql
