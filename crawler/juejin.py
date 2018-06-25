@@ -32,7 +32,6 @@ class JueJin(Crawler):
             like_total = args[0]  # 至少喜欢的数量
             # juejin response
             body_json = res.json()
-            print(body_json)
             article_list = body_json['d']['entrylist']
 
             res_list = []
