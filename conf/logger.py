@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import logging
 import logging.config
 from os import path

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import pymysql
 
 from conf.logger import log

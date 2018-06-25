@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from apscheduler.schedulers.blocking import BlockingScheduler
 from crawler import juejin, kf_toutiao, tuiku, cnblog, importnew
 
