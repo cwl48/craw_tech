@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from base import mysql_db
 from conf.logger import log
 

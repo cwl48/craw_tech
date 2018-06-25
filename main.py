@@ -1,5 +1,4 @@
-import platform
-
+# -*- coding: utf-8 -*-
 from conf import logger
 from base import scheduled
 from crawler import juejin, cnblog, kf_toutiao, tuiku, importnew
