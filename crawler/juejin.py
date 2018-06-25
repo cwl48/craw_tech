@@ -31,6 +31,7 @@ class JueJin(Crawler):
             like_total = args[0]  # 至少喜欢的数量
             # juejin response
             body_json = res.json()
+            print(body_json)
             article_list = body_json['d']['entrylist']
 
             res_list = []
@@ -65,9 +66,9 @@ class JueJin(Crawler):
         param = {
             'src': 'web',
             'uid': '57a358dc8ac247005f16735b',
-            'token': 'eyJhY2Nlc3NfdG9rZW4iOiJ3WXJHRUhRUDRMT2FBOE5sIiwicmVmcmVzaF90b2tlbiI6IkxXNXF0R2RiMnpCdENxQWsiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+            'token': 'eyJhY2Nlc3NfdG9rZW4iOiJOZUptWkRCWHRUU2J3R3lGIiwicmVmcmVzaF90b2tlbiI6InJqM2FIc3EwMUZSRXRqTUUiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
             'limit': 20,
-            'device_id': '1526214734185',
+            'device_id': '1529927169209',
             'category': "all",
             'recomment': 1
         }
@@ -76,9 +77,9 @@ class JueJin(Crawler):
         paramBackend = {
             'src': 'web',
             'uid': '57a358dc8ac247005f16735b',
-            'token': 'eyJhY2Nlc3NfdG9rZW4iOiJ3WXJHRUhRUDRMT2FBOE5sIiwicmVmcmVzaF90b2tlbiI6IkxXNXF0R2RiMnpCdENxQWsiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+            'token': 'eyJhY2Nlc3NfdG9rZW4iOiJOZUptWkRCWHRUU2J3R3lGIiwicmVmcmVzaF90b2tlbiI6InJqM2FIc3EwMUZSRXRqTUUiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
             'limit': 20,
-            'device_id': '1526214734185',
+            'device_id': '1529927169209',
             'category': "5562b419e4b00c57d9b94ae2",
             'recomment': 1,
             'period': 'week'
