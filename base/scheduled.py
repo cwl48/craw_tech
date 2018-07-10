@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from apscheduler.schedulers.blocking import BlockingScheduler
-from crawler import juejin, kf_toutiao, tuiku, cnblog, importnew
+from crawler import juejin, kf_toutiao, tuiku, cnblog, importnew,imooc
 
 
 def start():
@@ -16,5 +16,7 @@ def start():
     sched.add_job(cnblog.CnBlog().start, 'cron', hour='5,9,11,20,23', minute=20)
     # importNew 爬取任务
     sched.add_job(importnew.ImportNew().start, 'cron', hour='5,9,11,20,23', minute=40)
+    # imooc 爬取任务
+    sched.add_job(imooc.Imooc().start, 'cron', hour='5,9,11,20,23', minute=15)
 
     sched.start()
