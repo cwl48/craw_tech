@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from conf import logger
 from base import scheduled
-from crawler import juejin, cnblog, kf_toutiao, tuiku, importnew
+from crawler import juejin, cnblog, kf_toutiao, tuiku, importnew,imooc
 from util import myos
 
 
@@ -15,6 +15,7 @@ def start():
         kf_toutiao.KaiFaTouTiao().start()
         importnew.ImportNew().start()
         cnblog.CnBlog().start()
+        imooc.Imooc().start()
 
 
 if __name__ == '__main__':
