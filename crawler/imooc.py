@@ -43,13 +43,20 @@ class Imooc(Crawler):
                 p.title = post_a.p.string
                 # 跳转路由
                 p.redirect_url = host+post_a['href']
-                p.author = post.find("div",class_='nickName').string.strip()
+                p.author = post.find("div", class_='nickName').string.strip()
                 # 创建时间
-                now_year = datetime.now().year
-                timeDate = post.find("div", class_="createTime").string.strip()
-                timeDate = str(now_year)+"."+timeDate+":00"
-                formatDate = datetime.strptime(timeDate,"%Y.%m.%d %H:%M:%S")
-                timeDate = formatDate.strftime("%Y-%m-%d %H:%M:%S")
+
+                try:
+                    now_year = datetime.now().year
+                    timeDate = post.find(
+                        "div", class_="createTime").string.strip()
+                    timeDate = str(now_year)+"."+timeDate+":00"
+                    formatDate = datetime.strptime(
+                        timeDate, "%Y.%m.%d %H:%M:%S")
+                    timeDate = formatDate.strftime("%Y-%m-%d %H:%M:%S")
+                except Exception as e:
+                    log.err("time parse error")
+                    timeDate = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 p.creatime = timeDate
                 # postId
                 p.post_id = "/imooc"+post_a['href']
@@ -63,7 +70,8 @@ class Imooc(Crawler):
                 data = third_post_db.find_by_pt_id(p.post_id, self.third_id)
                 if data is None:
                     res_list.append(p)
-            log.info("[%s]爬取-> %s   %d条记录", self.third_name, url, len(res_list))
+            log.info("[%s]爬取-> %s   %d条记录",
+                     self.third_name, url, len(res_list))
             self.batch_insert(res_list)
 
     def start(self):
