@@ -61,10 +61,6 @@ class TuiKu(Crawler):
         self._craw(url1, None, "Python")
         url2 = "https://www.tuicool.com/topics/11060028?st=1&lang=1"
         self._craw(url2, None, "NodeJs")
-        url3 = "https://www.tuicool.com/topics/11070001?st=1&lang=1"
-        self._craw(url3, None, "JAVA后端,Spring")
-        url4 = "https://www.tuicool.com/topics/11070119?st=1&lang=1"
-        self._craw(url4, None, "JAVA后端")
         url5 = "https://www.tuicool.com/topics/11080084?st=1&lang=1"
         self._craw(url5, None, "Golang")
 
