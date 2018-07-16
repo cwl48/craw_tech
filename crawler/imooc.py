@@ -45,19 +45,7 @@ class Imooc(Crawler):
                 p.redirect_url = host+post_a['href']
                 p.author = post.find("div", class_='nickName').string.strip()
                 # 创建时间
-
-                try:
-                    now_year = datetime.now().year
-                    timeDate = post.find(
-                        "div", class_="createTime").string.strip()
-                    timeDate = str(now_year)+"."+timeDate+":00"
-                    formatDate = datetime.strptime(
-                        timeDate, "%Y.%m.%d %H:%M:%S")
-                    timeDate = formatDate.strftime("%Y-%m-%d %H:%M:%S")
-                except Exception as e:
-                    log.err("time parse error")
-                    timeDate = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                p.creatime = timeDate
+                p.creatime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 # postId
                 p.post_id = "/imooc"+post_a['href']
                 # tags
