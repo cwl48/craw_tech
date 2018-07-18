@@ -18,5 +18,7 @@ def start():
     sched.add_job(importnew.ImportNew().start, 'cron', hour='5,9,11,20,23', minute=40)
     # imooc 爬取任务
     sched.add_job(imooc.Imooc().start, 'cron', hour='5,9,11,20,23', minute=15)
+    # 伯乐在线 爬取任务
+    sched.add_job(bole.Bole().start, 'cron', hour='4,8,11,18,22', minute=23)
 
     sched.start()

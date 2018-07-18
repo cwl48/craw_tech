@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from conf import logger
 from base import scheduled
-from crawler import juejin, cnblog, kf_toutiao, tuiku, importnew,imooc
+from crawler import juejin, cnblog, kf_toutiao, tuiku, importnew,imooc,bole
 from util import myos
 
 
@@ -16,6 +16,7 @@ def start():
         importnew.ImportNew().start()
         cnblog.CnBlog().start()
         imooc.Imooc().start()
+        bole.Bole().start()
 
 
 
