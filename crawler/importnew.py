@@ -45,6 +45,8 @@ class ImportNew(Crawler):
                 p.post_id = re.findall(r"m/(.+?)\.html", p.redirect_url)[0]
                 # 标题
                 p.title = post_a.string
+                # 默认平台名
+                p.author = self.third_name
                 # 创建时间
                 p.creatime = post_a.next_sibling.next_sibling.split("|")[0].strip()
                 # 内容
