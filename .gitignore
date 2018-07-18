@@ -3,3 +3,4 @@ venv
 out
 .vscode
 conf/conf.py
+*/__pycache__

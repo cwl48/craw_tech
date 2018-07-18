@@ -18,6 +18,7 @@ def start():
         imooc.Imooc().start()
 
 
+
 if __name__ == '__main__':
     # log配置
     logger.init()
