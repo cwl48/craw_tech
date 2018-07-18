@@ -9,13 +9,13 @@ import re
 from db.third_post_db import third_post_db
 from conf.logger import log
 
-# importNew 爬虫 创建时间 2018-05-191
-class ImportNew(Crawler):
+# 伯乐在线 爬虫 创建时间 2018-07-18
+class Bole(Crawler):
 
     def __init__(self):
         super().__init__()
-        self.third_id = 5
-        self.third_name = "importNew"
+        self.third_id = 7
+        self.third_name = "伯乐在线"
 
     def _craw(self, url, param=None, *args):
 
@@ -37,16 +37,16 @@ class ImportNew(Crawler):
                 p = ThirdPost(self.third_id, self.third_name)
 
                 post_meta = post.find("div", class_="post-meta")
-                post_a = post_meta.find("a", "meta-title")
-                print(post_a)
+                post_a = post_meta.find("a", "archive-title")
                 # 跳转路由
                 p.redirect_url = post_a['href']
                 # postId
-                p.post_id = re.findall(r"m/(.+?)\.html", p.redirect_url)[0]
+                p.post_id = re.findall(r"m/(.+?)/", p.redirect_url)[0]
                 # 标题
                 p.title = post_a.string
                 # 创建时间
-                p.creatime = post_a.next_sibling.next_sibling.split("|")[0].strip()
+                p.creatime = post_a.next_sibling.next_sibling.split("·")[
+                    0].strip()
                 # 内容
                 p.content = post.find("span", class_="excerpt").p.string
                 if p.content is None:
@@ -54,9 +54,10 @@ class ImportNew(Crawler):
                 data = third_post_db.find_by_pt_id(p.post_id, self.third_id)
                 if data is None:
                     res_list.append(p)
-            log.info("[%s]爬取-> %s   %d条记录", self.third_name, url, len(res_list))
+            log.info("[%s]爬取-> %s   %d条记录",
+                     self.third_name, url, len(res_list))
             self.batch_insert(res_list)
 
     def start(self):
-        url = "http://www.importnew.com/all-posts/page/"
-        self._craw(url + str(1))
+        url = "http://blog.jobbole.com/all-posts/"
+        self._craw(url)
