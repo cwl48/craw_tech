@@ -43,7 +43,7 @@ class Imooc(Crawler):
                 p.title = post_a.p.string
                 # 跳转路由
                 p.redirect_url = host+post_a['href']
-                p.author = post.find("div", class_='nickName').string.strip()
+                p.author = post.find("a", class_='nickName').string.strip()
                 # 创建时间
                 p.creatime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 # postId
