@@ -28,16 +28,17 @@ class JueJin(Crawler):
 
     def _craw(self, url, param=None, *args):
         res = requests.get(url, params=param)
-        print(res.json())
         if res.status_code == 200:
             like_total = args[0]  # 至少喜欢的数量
             # juejin response
+            body_json = res.json()
             article_list = body_json['d']['entrylist']
 
             res_list = []
             for arti in article_list:
 
-                data = third_post_db.find_by_pt_id(arti['objectId'], self.third_id)
+                data = third_post_db.find_by_pt_id(
+                    arti['objectId'], self.third_id)
 
                 if data is None and arti['collectionCount'] > like_total:  # 大于30喜欢的加入
                     # 构建
@@ -54,32 +55,41 @@ class JueJin(Crawler):
                     post.like_num = arti['collectionCount']
                     post.comment_num = arti['commentsCount']
                     post.redirect_url = arti['originalUrl']
-                    post.creatime = arrow.get(arti['createdAt']).format('YYYY-MM-DD HH:mm:ss')
+                    post.creatime = arrow.get(
+                        arti['createdAt']).format('YYYY-MM-DD HH:mm:ss')
 
                     res_list.append(post)
             log.info("[%s]爬取-> %s  %d条记录", self.third_name, url, len(res_list))
             self.batch_insert(res_list)
 
     def start(self):
+        # 资源
+        src = "web"
+        # 用户id
+        uid = "57a358dc8ac247005f16735b"
+        # token
+        token = "eyJhY2Nlc3NfdG9rZW4iOiJLc0lRbDhzcmdNVE10VllEIiwicmVmcmVzaF90b2tlbiI6IjlOaUMwNXZiZGtwUXVqQVMiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ=="
+        # 设备id
+        device_id = "1531280352829"
         # 全部热门
         url = "https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank"
         param = {
-            'src': 'web',
-            'uid': '57a358dc8ac247005f16735b',
-            'token': 'eyJhY2Nlc3NfdG9rZW4iOiJLc0lRbDhzcmdNVE10VllEIiwicmVmcmVzaF90b2tlbiI6IjlOaUMwNXZiZGtwUXVqQVMiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+            'src': src,
+            'uid': uid,
+            'token': token,
             'limit': 20,
-            'device_id': '1531280352829',
+            'device_id': device_id,
             'category': "all",
             'recomment': 1
         }
         # 后端本周热门
         urlBackend = "https://timeline-merger-ms.juejin.im/v1/get_entry_by_period"
         paramBackend = {
-            'src': 'web',
-            'uid': '57a358dc8ac247005f16735b',
-            'token':'eyJhY2Nlc3NfdG9rZW4iOiJLc0lRbDhzcmdNVE10VllEIiwicmVmcmVzaF90b2tlbiI6IjlOaUMwNXZiZGtwUXVqQVMiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+            'src': src,
+            'uid': uid,
+            'token': token,
             'limit': 20,
-            'device_id': '1531280352829',
+            'device_id': device_id,
             'category': "5562b419e4b00c57d9b94ae2",
             'recomment': 1,
             'period': 'week'
