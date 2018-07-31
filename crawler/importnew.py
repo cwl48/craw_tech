@@ -38,7 +38,6 @@ class ImportNew(Crawler):
 
                 post_meta = post.find("div", class_="post-meta")
                 post_a = post_meta.find("a", "meta-title")
-                print(post_a)
                 # 跳转路由
                 p.redirect_url = post_a['href']
                 # postId
