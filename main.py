@@ -11,12 +11,12 @@ def start():
         scheduled.start()
     else:
         juejin.JueJin().start()
-        tuiku.TuiKu().start()
-        kf_toutiao.KaiFaTouTiao().start()
-        importnew.ImportNew().start()
-        cnblog.CnBlog().start()
-        imooc.Imooc().start()
-        bole.Bole().start()
+        # tuiku.TuiKu().start()
+        # kf_toutiao.KaiFaTouTiao().start()
+        # importnew.ImportNew().start()
+        # cnblog.CnBlog().start()
+        # imooc.Imooc().start()
+        # bole.Bole().start()
 
 
 
