@@ -32,6 +32,9 @@ class JueJin(Crawler):
             like_total = args[0]  # 至少喜欢的数量
             # juejin response
             body_json = res.json()
+            if body_json['s'] != 1:
+                log.error("爬取掘金失败"+body_json['m'])
+                return
             article_list = body_json['d']['entrylist']
 
             res_list = []
@@ -68,9 +71,9 @@ class JueJin(Crawler):
         # 用户id
         uid = "57a358dc8ac247005f16735b"
         # token
-        token = "eyJhY2Nlc3NfdG9rZW4iOiJLc0lRbDhzcmdNVE10VllEIiwicmVmcmVzaF90b2tlbiI6IjlOaUMwNXZiZGtwUXVqQVMiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ=="
+        token = "eyJhY2Nlc3NfdG9rZW4iOiJsbklETEdSU2RjajRPc29SIiwicmVmcmVzaF90b2tlbiI6Ik5RajNGTDc1Z3Bwd1o5OU8iLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ=="
         # 设备id
-        device_id = "1531280352829"
+        device_id = "1534834849402"
         # 全部热门
         url = "https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank"
         param = {
