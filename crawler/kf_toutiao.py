@@ -69,7 +69,7 @@ class KaiFaTouTiao(Crawler):
                 # 作者
                 p.author = user_info.a["title"].split("-")[0]
 
-                data = third_post_db.find_by_pt_id(p.post_id, self.third_id)
+                data = third_post_db.find_by_pt_id(p.post_id, self.third_id, p.title)
                 if data is None:
                     res_list.append(p)
             log.info("[%s]爬取-> %s  %d条记录", self.third_name, url, len(res_list))
