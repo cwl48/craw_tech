@@ -47,7 +47,7 @@ class TuiKu(Crawler):
                 # 标签
                 p.tags = args[0]
 
-                data = third_post_db.find_by_pt_id(p.post_id, self.third_id)
+                data = third_post_db.find_by_pt_id(p.post_id, self.third_id,p.title)
                 if data is None:
                     res_list.append(p)
 
