@@ -40,8 +40,7 @@ class JueJin(Crawler):
             res_list = []
             for arti in article_list:
 
-                data = third_post_db.find_by_pt_id(
-                    arti['objectId'], self.third_id, arti['title'])
+                data = third_post_db.find_by_pt_id(arti['title'])
 
                 if data is None and arti['collectionCount'] > like_total:  # 大于30喜欢的加入
                     # 构建
