@@ -11,9 +11,9 @@ class _ThirdPostDB:
     # 根据objectId,thirdId查询文章信息
     def find_by_pt_id(self, title):
         db = mysql_db.mysql
-        sql = "select * from tb_third_post where and title=%s"
+        sql = "select * from tb_third_post where title=%s"
         try:
-            data = db.query_one(sql, (post_id, third_id, title))
+            data = db.query_one(sql, (title))
             return data
         except Exception as e:
             log.info("执行Mysql: %s 时出错：%s" % (sql, e))
