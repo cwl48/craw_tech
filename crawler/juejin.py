@@ -96,5 +96,16 @@ class JueJin(Crawler):
             'recomment': 1,
             'period': 'week'
         }
+        paramFront = {
+            'src': src,
+            'uid': uid,
+            'token': token,
+            'limit': 20,
+            'device_id': device_id,
+            'category': "5562b415e4b00c57d9b94ac8",
+            'recomment': 1,
+            'period': 'week'
+        }
         self._craw(url, param, 40)
         self._craw(urlBackend, paramBackend, 30)
+        self._craw(urlBackend, paramFront, 30)
