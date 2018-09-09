@@ -49,7 +49,7 @@ class KaiFaTouTiao(Crawler):
             # 多个文章解析
             for post in posts:
 
-                p = ThirdPost(self.third_id, self.third_name)
+                p = ThirdPost(self.third_id, self.third_name,0)
                 post_content = post.find("div", class_="content")
                 meta = post_content.find("div", class_="meta")
                 user_info = post.find(

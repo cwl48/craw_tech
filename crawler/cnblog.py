@@ -31,7 +31,7 @@ class CnBlog(Crawler):
             res_list = []
             for post in posts:
 
-                p = ThirdPost(self.third_id, self.third_name)
+                p = ThirdPost(self.third_id, self.third_name,0)
                 post_a = post.find("a", class_="titlelnk")
                 #  # 跳转路由
                 p.redirect_url = post_a['href']

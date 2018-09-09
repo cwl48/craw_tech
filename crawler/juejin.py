@@ -33,7 +33,7 @@ class JueJin(Crawler):
             # juejin response
             body_json = res.json()
             if body_json['s'] != 1:
-                log.error("爬取掘金失败"+body_json['m'])
+                log.error("爬取掘金失败" + body_json['m'])
                 return
             article_list = body_json['d']['entrylist']
 
@@ -44,7 +44,7 @@ class JueJin(Crawler):
 
                 if data is None and arti['collectionCount'] > like_total:  # 大于30喜欢的加入
                     # 构建
-                    post = ThirdPost(self.third_id, self.third_name)
+                    post = ThirdPost(self.third_id, self.third_name, 0)
                     tags = []
                     for t in arti['tags']:
                         tags.append(t['title'])

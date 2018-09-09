@@ -36,7 +36,7 @@ class Imooc(Crawler):
 
             for post in posts:
 
-                p = ThirdPost(self.third_id, self.third_name)
+                p = ThirdPost(self.third_id, self.third_name,0)
 
                 post_a = post.find("a", "title")
                 # 标题

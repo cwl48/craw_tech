@@ -41,7 +41,7 @@ class JianShu(Crawler):
                         data = third_post_db.find_by_pt_id(arti['id'], self.third_id)
                         if data is None:  # 大于30喜欢的加入
                             # 构建
-                            post = ThirdPost(self.third_id, self.third_name)
+                            post = ThirdPost(self.third_id, self.third_name,0)
                             post.tags = param["tags"]
                             # 顺序 文章id、标题、标签、作者、喜欢数、评论数、跳转url、创建时间
                             post.post_id = arti['id']

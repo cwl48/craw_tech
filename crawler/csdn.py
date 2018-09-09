@@ -96,5 +96,7 @@ class Csdn(Crawler):
         # url = "https://blog.csdn.net/column/details/14531.html"
         # url = "https://blog.csdn.net/column/details/15500.html"
         # url = "https://blog.csdn.net/column/details/16165.html"
-        url = "https://blog.csdn.net/column/details/deep-elasticsearch.html"
+        # url = "https://blog.csdn.net/column/details/deep-elasticsearch.html"
+        # url = "https://blog.csdn.net/column/details/elasticsearch-action.html"
+        url = "https://blog.csdn.net/column/details/redis330.html"
         self._craw(url)

@@ -34,7 +34,7 @@ class ImportNew(Crawler):
             posts = archive.find_all("div", class_="post")
             for post in posts:
 
-                p = ThirdPost(self.third_id, self.third_name)
+                p = ThirdPost(self.third_id, self.third_name,0)
 
                 post_meta = post.find("div", class_="post-meta")
                 post_a = post_meta.find("a", "meta-title")
