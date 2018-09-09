@@ -11,6 +11,7 @@ from conf.logger import log
 # 推酷爬虫  创建时间2018-05-17
 host = "https://www.tuicool.com"
 
+
 class TuiKu(Crawler):
 
     def _craw(self, url, param=None, *args):
@@ -47,7 +48,7 @@ class TuiKu(Crawler):
                 # 标签
                 p.tags = args[0]
 
-                data = third_post_db.find_by_pt_id(p.title)
+                data = third_post_db.find_by_pt_id(p.post_id, p.third_id)
                 if data is None:
                     res_list.append(p)
 
