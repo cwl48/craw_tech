@@ -10,15 +10,15 @@ def start():
     if myos.is_linux():
         scheduled.start()
     else:
-        # juejin.JueJin().start()
-        # tuiku.TuiKu().start()
-        # kf_toutiao.KaiFaTouTiao().start()
-        # importnew.ImportNew().start()
-        # cnblog.CnBlog().start()
-        # imooc.Imooc().start()
+        juejin.JueJin().start()
+        tuiku.TuiKu().start()
+        kf_toutiao.KaiFaTouTiao().start()
+        importnew.ImportNew().start()
+        cnblog.CnBlog().start()
+        imooc.Imooc().start()
         # bole.Bole().start()
         # jianshu.JianShu().start()
-        csdn.Csdn().start()
+        # csdn.Csdn().start()
 
 
 if __name__ == '__main__':

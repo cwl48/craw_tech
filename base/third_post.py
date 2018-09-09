@@ -19,10 +19,6 @@ class ThirdPost(object):
     created_at = None
     can_analysis = 0
 
-    def __init__(self, third_id, third_name):
-        self.third_id = third_id
-        self.third_name = third_name
-
     def __init__(self, third_id, third_name, can_analysis):
         self.third_id = third_id
         self.third_name = third_name
