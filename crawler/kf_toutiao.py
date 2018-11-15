@@ -101,360 +101,360 @@ class KaiFaTouTiao(Crawler):
 
     def start(self):
         # 热门分享
-        # self._craw(url7)
-        # self._craw(url30)
-        # self._craw(url90)
+        self._craw(url7)
+        self._craw(url30)
+        self._craw(url90)
         # 独家号
         # 码洞
-        self._craw_with_page("https://toutiao.io/subjects/321918")
+        # self._craw_with_page("https://toutiao.io/subjects/321918")
 
-        # 文野
-        self._craw_with_page("https://toutiao.io/subjects/135973")
+        # # 文野
+        # self._craw_with_page("https://toutiao.io/subjects/135973")
 
-        # Java后端技术
-        self._craw_with_page("https://toutiao.io/subjects/63673")
+        # # Java后端技术
+        # self._craw_with_page("https://toutiao.io/subjects/63673")
 
-        # 基础架构自留地
-        self._craw_with_page("https://toutiao.io/subjects/26578")
+        # # 基础架构自留地
+        # self._craw_with_page("https://toutiao.io/subjects/26578")
 
-        # 技术分享小站
-        self._craw_with_page("https://toutiao.io/subjects/12684")
+        # # 技术分享小站
+        # self._craw_with_page("https://toutiao.io/subjects/12684")
 
-        # JAVA程序员技术分享
-        self._craw_with_page("https://toutiao.io/subjects/1996")
+        # # JAVA程序员技术分享
+        # self._craw_with_page("https://toutiao.io/subjects/1996")
 
-        # redis
-        self._craw_with_page("https://toutiao.io/subjects/46756")
+        # # redis
+        # self._craw_with_page("https://toutiao.io/subjects/46756")
 
-        # 进击的架构师
-        self._craw_with_page("https://toutiao.io/subjects/101482")
+        # # 进击的架构师
+        # self._craw_with_page("https://toutiao.io/subjects/101482")
 
-        # 美团
-        self._craw_with_page("https://toutiao.io/subjects/117027")
+        # # 美团
+        # self._craw_with_page("https://toutiao.io/subjects/117027")
 
-        # 魅族
-        self._craw_with_page("https://toutiao.io/subjects/22029")
+        # # 魅族
+        # self._craw_with_page("https://toutiao.io/subjects/22029")
 
-        # 技术小黑屋
-        self._craw_with_page("https://toutiao.io/subjects/117")
+        # # 技术小黑屋
+        # self._craw_with_page("https://toutiao.io/subjects/117")
 
-        # 架构之美
-        self._craw_with_page("https://toutiao.io/subjects/42200")
+        # # 架构之美
+        # self._craw_with_page("https://toutiao.io/subjects/42200")
 
-        # Linux中国
-        self._craw_with_page("https://toutiao.io/subjects/10795")
+        # # Linux中国
+        # self._craw_with_page("https://toutiao.io/subjects/10795")
 
-        # JAVA干货
-        self._craw_with_page("https://toutiao.io/subjects/51515")
+        # # JAVA干货
+        # self._craw_with_page("https://toutiao.io/subjects/51515")
 
-        # python 之美
-        self._craw_with_page("https://toutiao.io/subjects/6988")
+        # # python 之美
+        # self._craw_with_page("https://toutiao.io/subjects/6988")
 
-        # coding技术
-        self._craw_with_page("https://toutiao.io/subjects/14483")
+        # # coding技术
+        # self._craw_with_page("https://toutiao.io/subjects/14483")
 
-        # 程序员的朋友圈
-        self._craw_with_page("https://toutiao.io/subjects/378")
+        # # 程序员的朋友圈
+        # self._craw_with_page("https://toutiao.io/subjects/378")
 
-        # 彻底理解计算机
-        self._craw_with_page("https://toutiao.io/subjects/2356")
+        # # 彻底理解计算机
+        # self._craw_with_page("https://toutiao.io/subjects/2356")
 
-        # docker
-        self._craw_with_page("https://toutiao.io/subjects/21")
+        # # docker
+        # self._craw_with_page("https://toutiao.io/subjects/21")
 
-        # 前端杂谈
-        self._craw_with_page("https://toutiao.io/subjects/6782")
+        # # 前端杂谈
+        # self._craw_with_page("https://toutiao.io/subjects/6782")
 
-        # 前端js
-        self._craw_with_page("https://toutiao.io/subjects/11510")
+        # # 前端js
+        # self._craw_with_page("https://toutiao.io/subjects/11510")
 
-        # 后端技术杂谈
-        self._craw_with_page("https://toutiao.io/subjects/4944")
+        # # 后端技术杂谈
+        # self._craw_with_page("https://toutiao.io/subjects/4944")
 
-        # 程序员学架构
-        self._craw_with_page("https://toutiao.io/subjects/589")
+        # # 程序员学架构
+        # self._craw_with_page("https://toutiao.io/subjects/589")
 
-        # 高性能高并发高可用
-        self._craw_with_page("https://toutiao.io/subjects/4755")
+        # # 高性能高并发高可用
+        # self._craw_with_page("https://toutiao.io/subjects/4755")
 
-        # 深入浅出es6
-        self._craw_with_page("https://toutiao.io/subjects/1221")
+        # # 深入浅出es6
+        # self._craw_with_page("https://toutiao.io/subjects/1221")
 
-        # 原创技术经验
-        self._craw_with_page("https://toutiao.io/subjects/24410")
+        # # 原创技术经验
+        # self._craw_with_page("https://toutiao.io/subjects/24410")
 
-        # 第八个手艺人
-        self._craw_with_page("https://toutiao.io/subjects/523")
+        # # 第八个手艺人
+        # self._craw_with_page("https://toutiao.io/subjects/523")
 
-        # Python中文社区
-        self._craw_with_page("https://toutiao.io/subjects/183367")
+        # # Python中文社区
+        # self._craw_with_page("https://toutiao.io/subjects/183367")
 
-        # 运维精选
-        self._craw_with_page("https://toutiao.io/subjects/206")
+        # # 运维精选
+        # self._craw_with_page("https://toutiao.io/subjects/206")
 
-        # 开源中国推荐博客
-        self._craw_with_page("https://toutiao.io/subjects/42648")
+        # # 开源中国推荐博客
+        # self._craw_with_page("https://toutiao.io/subjects/42648")
 
-        # app后端开发
-        self._craw_with_page("https://toutiao.io/subjects/50375")
+        # # app后端开发
+        # self._craw_with_page("https://toutiao.io/subjects/50375")
 
-        # 信息安全
-        self._craw_with_page("https://toutiao.io/subjects/30718")
+        # # 信息安全
+        # self._craw_with_page("https://toutiao.io/subjects/30718")
 
-        # 开源中国技术翻译
-        self._craw_with_page("https://toutiao.io/subjects/42628")
+        # # 开源中国技术翻译
+        # self._craw_with_page("https://toutiao.io/subjects/42628")
 
-        # 牛客网精华贴
-        self._craw_with_page("https://toutiao.io/subjects/17560")
+        # # 牛客网精华贴
+        # self._craw_with_page("https://toutiao.io/subjects/17560")
 
-        # 算法那些事
-        self._craw_with_page("https://toutiao.io/subjects/42007")
+        # # 算法那些事
+        # self._craw_with_page("https://toutiao.io/subjects/42007")
 
-        # 前端与nodejs
-        self._craw_with_page("https://toutiao.io/subjects/7076")
+        # # 前端与nodejs
+        # self._craw_with_page("https://toutiao.io/subjects/7076")
 
-        # React vue 学习
-        self._craw_with_page("https://toutiao.io/subjects/1145")
+        # # React vue 学习
+        # self._craw_with_page("https://toutiao.io/subjects/1145")
 
-        # 前端stepbystep
-        self._craw_with_page("https://toutiao.io/subjects/29096")
+        # # 前端stepbystep
+        # self._craw_with_page("https://toutiao.io/subjects/29096")
 
-        # java实战技术
-        self._craw_with_page("https://toutiao.io/subjects/22887")
+        # # java实战技术
+        # self._craw_with_page("https://toutiao.io/subjects/22887")
 
-        # 前端早读课
-        self._craw_with_page("https://toutiao.io/subjects/11907")
+        # # 前端早读课
+        # self._craw_with_page("https://toutiao.io/subjects/11907")
 
-        # segmentFault 优质内容
-        self._craw_with_page("https://toutiao.io/subjects/50525")
+        # # segmentFault 优质内容
+        # self._craw_with_page("https://toutiao.io/subjects/50525")
 
-        # ML之道
-        self._craw_with_page("https://toutiao.io/subjects/42203")
+        # # ML之道
+        # self._craw_with_page("https://toutiao.io/subjects/42203")
 
-        # 阿里中间件
-        self._craw_with_page("https://toutiao.io/subjects/108495")
+        # # 阿里中间件
+        # self._craw_with_page("https://toutiao.io/subjects/108495")
 
-        # 互联网公司架构
-        self._craw_with_page("https://toutiao.io/subjects/132303")
+        # # 互联网公司架构
+        # self._craw_with_page("https://toutiao.io/subjects/132303")
 
-        # golang开发
-        self._craw_with_page("https://toutiao.io/subjects/47783")
+        # # golang开发
+        # self._craw_with_page("https://toutiao.io/subjects/47783")
 
-        # tomcat 那些事
-        self._craw_with_page("https://toutiao.io/subjects/53054")
+        # # tomcat 那些事
+        # self._craw_with_page("https://toutiao.io/subjects/53054")
 
-        # 小弧光黑板报
-        self._craw_with_page("https://toutiao.io/subjects/458")
+        # # 小弧光黑板报
+        # self._craw_with_page("https://toutiao.io/subjects/458")
 
-        # 分布式系统
-        self._craw_with_page("https://toutiao.io/subjects/8411")
+        # # 分布式系统
+        # self._craw_with_page("https://toutiao.io/subjects/8411")
 
-        # nodejs
-        self._craw_with_page("https://toutiao.io/subjects/75893")
+        # # nodejs
+        # self._craw_with_page("https://toutiao.io/subjects/75893")
 
-        # 江南布衣
-        self._craw_with_page("https://toutiao.io/subjects/2147")
+        # # 江南布衣
+        # self._craw_with_page("https://toutiao.io/subjects/2147")
 
-        # java进阶
-        self._craw_with_page("https://toutiao.io/subjects/56996")
+        # # java进阶
+        # self._craw_with_page("https://toutiao.io/subjects/56996")
 
-        # 腾讯bugly干货分享
-        self._craw_with_page("https://toutiao.io/subjects/66980")
+        # # 腾讯bugly干货分享
+        # self._craw_with_page("https://toutiao.io/subjects/66980")
 
-        # GO夜读
-        self._craw_with_page("https://toutiao.io/subjects/18894")
+        # # GO夜读
+        # self._craw_with_page("https://toutiao.io/subjects/18894")
 
-        # 死磕java
-        self._craw_with_page("https://toutiao.io/subjects/25239")
+        # # 死磕java
+        # self._craw_with_page("https://toutiao.io/subjects/25239")
 
-        # 分布式系统架构
-        self._craw_with_page("https://toutiao.io/subjects/132474")
+        # # 分布式系统架构
+        # self._craw_with_page("https://toutiao.io/subjects/132474")
 
-        # 只有干货
-        self._craw_with_page("https://toutiao.io/subjects/20338")
+        # # 只有干货
+        # self._craw_with_page("https://toutiao.io/subjects/20338")
 
-        # go
-        self._craw_with_page("https://toutiao.io/subjects/18464")
+        # # go
+        # self._craw_with_page("https://toutiao.io/subjects/18464")
 
-        # 一个程序员的自我修养
-        self._craw_with_page("https://toutiao.io/subjects/35168")
+        # # 一个程序员的自我修养
+        # self._craw_with_page("https://toutiao.io/subjects/35168")
 
-        # 七牛
-        self._craw_with_page("https://toutiao.io/subjects/111688")
+        # # 七牛
+        # self._craw_with_page("https://toutiao.io/subjects/111688")
 
-        # 服务端分享
-        self._craw_with_page("https://toutiao.io/subjects/991")
+        # # 服务端分享
+        # self._craw_with_page("https://toutiao.io/subjects/991")
 
-        # java 后端
-        self._craw_with_page("https://toutiao.io/subjects/132961")
+        # # java 后端
+        # self._craw_with_page("https://toutiao.io/subjects/132961")
 
-        # 游戏开发杂货铺
-        self._craw_with_page("https://toutiao.io/subjects/528")
+        # # 游戏开发杂货铺
+        # self._craw_with_page("https://toutiao.io/subjects/528")
 
-        # unity
-        self._craw_with_page("https://toutiao.io/subjects/91210")
+        # # unity
+        # self._craw_with_page("https://toutiao.io/subjects/91210")
 
-        # 黄哥的python短文
-        self._craw_with_page("https://toutiao.io/subjects/35888")
+        # # 黄哥的python短文
+        # self._craw_with_page("https://toutiao.io/subjects/35888")
 
-        # 花满楼
-        self._craw_with_page("https://toutiao.io/subjects/913")
+        # # 花满楼
+        # self._craw_with_page("https://toutiao.io/subjects/913")
 
-        # 携程技术
-        self._craw_with_page("https://toutiao.io/subjects/119893")
+        # # 携程技术
+        # self._craw_with_page("https://toutiao.io/subjects/119893")
 
-        # 吴说
-        self._craw_with_page("https://toutiao.io/subjects/2833")
+        # # 吴说
+        # self._craw_with_page("https://toutiao.io/subjects/2833")
 
-        # netty技术内幕
-        self._craw_with_page("https://toutiao.io/subjects/183692")
+        # # netty技术内幕
+        # self._craw_with_page("https://toutiao.io/subjects/183692")
 
-        # 2048
-        self._craw_with_page("https://toutiao.io/subjects/3216")
+        # # 2048
+        # self._craw_with_page("https://toutiao.io/subjects/3216")
 
-        # 一亩三分地
-        self._craw_with_page("https://toutiao.io/subjects/796")
+        # # 一亩三分地
+        # self._craw_with_page("https://toutiao.io/subjects/796")
 
-        # 58同程技术团队
-        self._craw_with_page("https://toutiao.io/subjects/260377")
+        # # 58同程技术团队
+        # self._craw_with_page("https://toutiao.io/subjects/260377")
 
-        # eggjs技术团队
-        self._craw_with_page("https://toutiao.io/subjects/17491")
+        # # eggjs技术团队
+        # self._craw_with_page("https://toutiao.io/subjects/17491")
 
-        # 开发者独家号
-        self._craw_with_page("https://toutiao.io/subjects/13080")
+        # # 开发者独家号
+        # self._craw_with_page("https://toutiao.io/subjects/13080")
 
-        # holys的分享
-        self._craw_with_page("https://toutiao.io/subjects/642")
+        # # holys的分享
+        # self._craw_with_page("https://toutiao.io/subjects/642")
 
-        # 游戏开发和后端开发那些事
-        self._craw_with_page("https://toutiao.io/subjects/162233")
+        # # 游戏开发和后端开发那些事
+        # self._craw_with_page("https://toutiao.io/subjects/162233")
 
-        # 死磕elasticsearch
-        self._craw_with_page("https://toutiao.io/subjects/272620")
+        # # 死磕elasticsearch
+        # self._craw_with_page("https://toutiao.io/subjects/272620")
 
-        # 即时通讯网
-        self._craw_with_page("https://toutiao.io/subjects/104810")
+        # # 即时通讯网
+        # self._craw_with_page("https://toutiao.io/subjects/104810")
 
-        # 计算机文章翻译
-        self._craw_with_page("https://toutiao.io/subjects/136271")
+        # # 计算机文章翻译
+        # self._craw_with_page("https://toutiao.io/subjects/136271")
 
-        # 雨痕学堂
-        self._craw_with_page("https://toutiao.io/subjects/41005")
+        # # 雨痕学堂
+        # self._craw_with_page("https://toutiao.io/subjects/41005")
 
-        # 唯品会
-        self._craw_with_page("https://toutiao.io/subjects/41005")
+        # # 唯品会
+        # self._craw_with_page("https://toutiao.io/subjects/41005")
 
-        # 承香墨影 android
-        self._craw_with_page("https://toutiao.io/subjects/16900")
+        # # 承香墨影 android
+        # self._craw_with_page("https://toutiao.io/subjects/16900")
 
-        # android & ios工程师之路
-        self._craw_with_page("https://toutiao.io/subjects/4829")
+        # # android & ios工程师之路
+        # self._craw_with_page("https://toutiao.io/subjects/4829")
 
-        # 迷路的程序员
-        self._craw_with_page("https://toutiao.io/subjects/161574")
+        # # 迷路的程序员
+        # self._craw_with_page("https://toutiao.io/subjects/161574")
 
-        # 技术杂谈
-        self._craw_with_page("https://toutiao.io/subjects/5207")
+        # # 技术杂谈
+        # self._craw_with_page("https://toutiao.io/subjects/5207")
 
-        # 从前端到全栈
-        self._craw_with_page("https://toutiao.io/subjects/149476")
+        # # 从前端到全栈
+        # self._craw_with_page("https://toutiao.io/subjects/149476")
 
-        # IT招式和内功修养
-        self._craw_with_page("https://toutiao.io/subjects/58552")
+        # # IT招式和内功修养
+        # self._craw_with_page("https://toutiao.io/subjects/58552")
 
-        # 全栈头条
-        self._craw_with_page("https://toutiao.io/subjects/135469")
+        # # 全栈头条
+        # self._craw_with_page("https://toutiao.io/subjects/135469")
 
-        # 阿里中间件博客
-        self._craw_with_page("https://toutiao.io/subjects/108495")
+        # # 阿里中间件博客
+        # self._craw_with_page("https://toutiao.io/subjects/108495")
 
-        # 走向架构师之路
-        self._craw_with_page("https://toutiao.io/subjects/236468")
+        # # 走向架构师之路
+        # self._craw_with_page("https://toutiao.io/subjects/236468")
 
-        # fir.im Weekly
-        self._craw_with_page("https://toutiao.io/subjects/14908")
+        # # fir.im Weekly
+        # self._craw_with_page("https://toutiao.io/subjects/14908")
 
-        # 互联网公司架构方案
-        self._craw_with_page("https://toutiao.io/subjects/132303")
+        # # 互联网公司架构方案
+        # self._craw_with_page("https://toutiao.io/subjects/132303")
 
-        # 有赞技术精选
-        self._craw_with_page("https://toutiao.io/subjects/86994")
+        # # 有赞技术精选
+        # self._craw_with_page("https://toutiao.io/subjects/86994")
 
-        # 高效运维
-        self._craw_with_page("https://toutiao.io/subjects/95610")
+        # # 高效运维
+        # self._craw_with_page("https://toutiao.io/subjects/95610")
 
-        # Dbaplus.cn精选文章
-        self._craw_with_page("https://toutiao.io/subjects/87719")
+        # # Dbaplus.cn精选文章
+        # self._craw_with_page("https://toutiao.io/subjects/87719")
 
-        # sunsky303
-        self._craw_with_page("https://toutiao.io/subjects/48071")
+        # # sunsky303
+        # self._craw_with_page("https://toutiao.io/subjects/48071")
 
-        # Coder at Work
-        self._craw_with_page("https://toutiao.io/subjects/97282")
+        # # Coder at Work
+        # self._craw_with_page("https://toutiao.io/subjects/97282")
 
-        # 芋道源码
-        self._craw_with_page("https://toutiao.io/subjects/2019")
+        # # 芋道源码
+        # self._craw_with_page("https://toutiao.io/subjects/2019")
 
-        # 大数据生态
-        self._craw_with_page("https://toutiao.io/subjects/136176")
+        # # 大数据生态
+        # self._craw_with_page("https://toutiao.io/subjects/136176")
 
-        # 浪客用react,java全栈
-        self._craw_with_page("https://toutiao.io/subjects/132403")
+        # # 浪客用react,java全栈
+        # self._craw_with_page("https://toutiao.io/subjects/132403")
 
-        # 数据淘金
-        self._craw_with_page("https://toutiao.io/subjects/120437")
+        # # 数据淘金
+        # self._craw_with_page("https://toutiao.io/subjects/120437")
 
-        # 进击的程序猿
-        self._craw_with_page("https://toutiao.io/subjects/24912")
+        # # 进击的程序猿
+        # self._craw_with_page("https://toutiao.io/subjects/24912")
 
-        # 274970的独家号
-        self._craw_with_page("https://toutiao.io/subjects/151363")
+        # # 274970的独家号
+        # self._craw_with_page("https://toutiao.io/subjects/151363")
 
-        # Java深度&人工智能（只发原创）
-        self._craw_with_page("https://toutiao.io/subjects/195885")
+        # # Java深度&人工智能（只发原创）
+        # self._craw_with_page("https://toutiao.io/subjects/195885")
 
-        # 最佳实践
-        self._craw_with_page("https://toutiao.io/subjects/72425")
+        # # 最佳实践
+        # self._craw_with_page("https://toutiao.io/subjects/72425")
 
-        # 微信公众号:笑你妹呀
-        self._craw_with_page("https://toutiao.io/subjects/242796")
+        # # 微信公众号:笑你妹呀
+        # self._craw_with_page("https://toutiao.io/subjects/242796")
 
-        # 七牛云
-        self._craw_with_page("https://toutiao.io/subjects/111688")
+        # # 七牛云
+        # self._craw_with_page("https://toutiao.io/subjects/111688")
 
-        # 悦读集
-        self._craw_with_page("https://toutiao.io/subjects/105609")
+        # # 悦读集
+        # self._craw_with_page("https://toutiao.io/subjects/105609")
 
-        # ThoughtWorks
-        self._craw_with_page("https://toutiao.io/subjects/8973")
+        # # ThoughtWorks
+        # self._craw_with_page("https://toutiao.io/subjects/8973")
 
-        # 1码平川的独家号
-        self._craw_with_page("https://toutiao.io/subjects/164069")
+        # # 1码平川的独家号
+        # self._craw_with_page("https://toutiao.io/subjects/164069")
 
-        # 落北的mark簿
-        self._craw_with_page("https://toutiao.io/subjects/123823")
+        # # 落北的mark簿
+        # self._craw_with_page("https://toutiao.io/subjects/123823")
 
-        # 瞬息之间
-        self._craw_with_page("https://toutiao.io/subjects/50961")
+        # # 瞬息之间
+        # self._craw_with_page("https://toutiao.io/subjects/50961")
 
-        # 虞大胆的叽叽咋咋
-        self._craw_with_page("https://toutiao.io/subjects/133323")
+        # # 虞大胆的叽叽咋咋
+        # self._craw_with_page("https://toutiao.io/subjects/133323")
 
-        # 白帽子
-        self._craw_with_page("https://toutiao.io/subjects/3838")
+        # # 白帽子
+        # self._craw_with_page("https://toutiao.io/subjects/3838")
 
-        # Scala & Java
-        self._craw_with_page("https://toutiao.io/subjects/190184")
+        # # Scala & Java
+        # self._craw_with_page("https://toutiao.io/subjects/190184")
 
-        # ScalaCool
-        self._craw_with_page("https://toutiao.io/subjects/180363")
+        # # ScalaCool
+        # self._craw_with_page("https://toutiao.io/subjects/180363")
 
-        # 码个蛋
-        self._craw_with_page("https://toutiao.io/subjects/102848")
+        # # 码个蛋
+        # self._craw_with_page("https://toutiao.io/subjects/102848")
 
-        # Awesomes-cn
-        self._craw_with_page("https://toutiao.io/subjects/27538")
+        # # Awesomes-cn
+        # self._craw_with_page("https://toutiao.io/subjects/27538")
 
-        # 终端研发部
-        self._craw_with_page("https://toutiao.io/subjects/257104")
+        # # 终端研发部
+        # self._craw_with_page("https://toutiao.io/subjects/257104")
