@@ -3,6 +3,7 @@ from conf import logger
 from base import scheduled
 from crawler import juejin, cnblog, kf_toutiao, tuiku, importnew, imooc, bole, jianshu, csdn
 from util import myos
+from gw import controller
 
 
 def start():
@@ -19,6 +20,7 @@ def start():
         # bole.Bole().start()
         # jianshu.JianShu().start()
         # csdn.Csdn().start()
+    controller.init()
 
 
 if __name__ == '__main__':

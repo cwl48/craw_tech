@@ -70,9 +70,9 @@ class JueJin(Crawler):
         # 用户id
         uid = "57a358dc8ac247005f16735b"
         # token
-        token = "eyJhY2Nlc3NfdG9rZW4iOiJOMHlmaFh2OXo4ak1EVlFiIiwicmVmcmVzaF90b2tlbiI6IlBWTkZGdGZwS2VFQVlScTciLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ=="
+        token = "eyJhY2Nlc3NfdG9rZW4iOiJFU0tGeGtBOUxzemxSbzNLIiwicmVmcmVzaF90b2tlbiI6Ikk3SzlncG5mb3VtNkdqWDgiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ=="
         # 设备id
-        device_id = "1541467880947"
+        device_id = "1551405338004"
         # 全部热门
         url = "https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank"
         param = {
