@@ -14,6 +14,9 @@ def getpicurl():
     url = request.args.get('url')
     print(url)
     res = requests.get(url).json()
+    if res['s'] != 1
+        return ''
+
     s = res['d']['content']
 
     h = html2text.HTML2Text()
