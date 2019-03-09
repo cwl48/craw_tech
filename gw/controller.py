@@ -6,20 +6,18 @@ import urllib.parse
 
 app = Flask(__name__)
 
-
+h = html2text.HTML2Text()
 # html to markdown
+
+
 @app.route('/html2Markdown')
 def getpicurl():
 
     url = request.args.get('url')
-    print(url)
     res = requests.get(url).json()
     if res['s'] != 1:
         return ''
-
     s = res['d']['content']
-
-    h = html2text.HTML2Text()
     r = h.handle(s)
     return r
 
