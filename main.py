@@ -8,11 +8,10 @@ from gw import controller
 
 def start():
     # linux下开起定时任务  其他就直接全部执行
-    
     if myos.is_linux():
         scheduled.start()
     else:
-        # juejin.JueJin().start()
+        juejin.JueJin().start()
 
         # tuiku.TuiKu().start()
         # kf_toutiao.KaiFaTouTiao().start()
@@ -22,10 +21,10 @@ def start():
         # bole.Bole().start()
         # jianshu.JianShu().start()
         # csdn.Csdn().start()
-    controller.init()
 
 if __name__ == '__main__':
     # log配置
     logger.init()
     # 启动
     start()
+    controller.init()
