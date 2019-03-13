@@ -51,3 +51,7 @@ class CnBlog(Crawler):
     def start(self):
         url = "https://www.cnblogs.com/aggsite/HeadlineList"
         self._craw(url, {"PageIndex": 1})
+
+
+def start():
+    CnBlog().start()

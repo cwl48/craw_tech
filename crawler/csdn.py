@@ -100,3 +100,7 @@ class Csdn(Crawler):
         # url = "https://blog.csdn.net/column/details/elasticsearch-action.html"
         url = "https://blog.csdn.net/column/details/redis330.html"
         self._craw(url)
+
+
+def start():
+    Csdn().start()

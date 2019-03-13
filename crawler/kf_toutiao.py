@@ -458,3 +458,7 @@ class KaiFaTouTiao(Crawler):
 
         # # 终端研发部
         # self._craw_with_page("https://toutiao.io/subjects/257104")
+
+
+def start():
+    KaiFaTouTiao().start()

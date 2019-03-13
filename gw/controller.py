@@ -3,6 +3,7 @@ import sys
 import html2text
 from flask import Flask, request
 import urllib.parse
+from base import scheduled
 
 app = Flask(__name__)
 
@@ -23,4 +24,5 @@ def getpicurl():
 
 
 def init():
+    scheduled.start(app)
     app.run(host='0.0.0.0', port=8001, debug=False)

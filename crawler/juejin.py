@@ -109,3 +109,6 @@ class JueJin(Crawler):
         self._craw(url, param, 40)
         self._craw(urlBackend, paramBackend, 30)
         self._craw(urlBackend, paramFront, 30)
+
+def start():
+    JueJin().start()

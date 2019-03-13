@@ -63,3 +63,7 @@ class Bole(Crawler):
     def start(self):
         url = "http://blog.jobbole.com/all-posts/"
         self._craw(url)
+
+
+def start():
+    Bole().start()

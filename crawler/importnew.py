@@ -61,3 +61,7 @@ class ImportNew(Crawler):
     def start(self):
         url = "http://www.importnew.com/all-posts/page/"
         self._craw(url + str(1))
+
+
+def start():
+    ImportNew().start()

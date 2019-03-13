@@ -68,3 +68,7 @@ class TuiKu(Crawler):
         super().__init__()
         self.third_id = 3
         self.third_name = "推酷"
+
+
+def start():
+    TuiKu().start()

@@ -90,3 +90,7 @@ class JianShu(Crawler):
             "tags": "前端"
         }
         self._craw(url11, param1)
+
+
+def start():
+    JianShu().start()

@@ -67,3 +67,7 @@ class Imooc(Crawler):
         url2 = "https://www.imooc.com/article/excellent?type=2"
         self._craw(url1)
         self._craw(url2)
+
+
+def start():
+    Imooc().start()
