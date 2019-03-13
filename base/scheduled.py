@@ -7,7 +7,7 @@ def start():
     sched = BackgroundScheduler()
 
     # 掘金文章爬取任务
-    sched.add_job(juejin.JueJin().start, 'cron', hour='6,12,18,22,1', minute=1)
+    sched.add_job(juejin.JueJin().start, 'cron', hour='6,12,18,22,1', minute=50)
     # 开发者头条爬取任务
     sched.add_job(kf_toutiao.KaiFaTouTiao().start, 'cron', hour='6,10,11,18,23', minute=10)
     # 推酷爬取任务
