@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from apscheduler.schedulers.background import BackgroundScheduler
 from crawler import juejin, kf_toutiao, tuiku, cnblog, importnew,imooc,bole
 
 
 def start():
-    sched = AsyncIOScheduler()
+    sched = BackgroundScheduler()
 
     # 掘金文章爬取任务
     sched.add_job(juejin.JueJin().start, 'cron', hour='6,12,18,22,1', minute=1)
