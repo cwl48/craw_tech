@@ -54,7 +54,7 @@ class Segment(Crawler):
                 # 创建时间
                 p.creatime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 # postId
-                p.post_id = "/segmentfault"+post_href['href']
+                p.post_id = "segment-"+post_href['href']
                 # content
                 p.content = post.find(
                     "div", class_="article-excerpt").text.strip()
