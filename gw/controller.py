@@ -47,7 +47,8 @@ def segment(url):
     for img in imgList:
         url_str = "https://www.chaoyer.com/csy/common/file/proxy?proxy=1&img=https://segmentfault.com" + str(
             img["data-src"])
-        img["src"] = url_str
+        img_res = requests.get(url_str)
+        img["src"] = eval(img_res.text.strip())
     s = article.prettify()
     r = h.handle(s)
     return r
