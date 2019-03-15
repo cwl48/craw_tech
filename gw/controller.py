@@ -6,6 +6,7 @@ import urllib.parse
 from base import scheduled
 import html
 from bs4 import BeautifulSoup
+from conf.logger import log
 
 app = Flask(__name__)
 
