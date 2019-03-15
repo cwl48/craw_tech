@@ -40,6 +40,7 @@ def segment(url):
     res = requests.get(url)
     # html文档
     htmls = res.text
+    log.info("res%s",htmls)
     soup = BeautifulSoup(htmls, 'html.parser')
 
     article = soup.find("div", class_="article__content")
