@@ -22,6 +22,8 @@ def getpicurl():
     third_type = int(third_type)
     if third_type == 1:
         return juejin(url)
+    if third_type == 5:
+        return importNew(url)
     if third_type == 10:
         return segment(url)
     return ""
@@ -41,7 +43,6 @@ def segment(url):
     res = requests.get(url)
     # html文档
     htmls = res.text
-    log.info("res%s",htmls)
     soup = BeautifulSoup(htmls, 'html.parser')
 
     article = soup.find("div", class_="article__content")
@@ -51,6 +52,21 @@ def segment(url):
             img["data-src"])
         img_res = requests.get(url_str)
         img["src"] = eval(img_res.text.strip())
+    s = article.prettify()
+    r = h.handle(s)
+    return r
+
+
+def importNew(url):
+    res = requests.get(url)
+
+    # html文档
+    htmls = res.text
+    # print(s)
+    h = html2text.HTML2Text()
+    soup = BeautifulSoup(htmls, 'html.parser')
+
+    article = soup.find("div", class_="entry")
     s = article.prettify()
     r = h.handle(s)
     return r

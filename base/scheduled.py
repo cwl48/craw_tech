@@ -81,10 +81,10 @@ def start(app):
 
         # tuiku.TuiKu().start()
         # kf_toutiao.KaiFaTouTiao().start()
-        # importnew.ImportNew().start()
+        importnew.ImportNew().start()
         # cnblog.CnBlog().start()
         # imooc.Imooc().start()
         # bole.Bole().start()
         # jianshu.JianShu().start()
         # csdn.Csdn().start()
-        segment.Segment().start()
+        # segment.Segment().start()

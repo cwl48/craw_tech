@@ -60,7 +60,8 @@ class ImportNew(Crawler):
 
     def start(self):
         url = "http://www.importnew.com/all-posts/page/"
-        self._craw(url + str(1))
+        # for num in range(1, 120):
+        #     self._craw(url + str(num))
 
 
 def start():
