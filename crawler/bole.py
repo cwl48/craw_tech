@@ -41,7 +41,7 @@ class Bole(Crawler):
                 # 跳转路由
                 p.redirect_url = post_a['href']
                 # postId
-                p.post_id = re.findall(r"m/(.+?)/", p.redirect_url)[0]
+                p.post_id = "bole-"+re.findall(r"m/(.+?)/", p.redirect_url)[0]
                 # 标题
                 p.title = post_a.string
                 # 默认平台名
@@ -61,8 +61,11 @@ class Bole(Crawler):
             self.batch_insert(res_list)
 
     def start(self):
-        url = "http://blog.jobbole.com/all-posts/"
+        url = "http://blog.jobbole.com/all-posts/page/"
         self._craw(url)
+        # for num in range(54, 0, -1):
+        #     self._craw(url + str(num))
+
 
 
 def start():
