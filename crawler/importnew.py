@@ -41,7 +41,7 @@ class ImportNew(Crawler):
                 # 跳转路由
                 p.redirect_url = post_a['href']
                 # postId
-                p.post_id = re.findall(r"m/(.+?)\.html", p.redirect_url)[0]
+                p.post_id = "importnew-"+re.findall(r"m/(.+?)\.html", p.redirect_url)[0]
                 # 标题
                 p.title = post_a.string
                 # 默认平台名
@@ -60,7 +60,7 @@ class ImportNew(Crawler):
 
     def start(self):
         url = "http://www.importnew.com/all-posts/page/"
-        # for num in range(1, 120):
+        # for num in range(1, 140):
         #     self._craw(url + str(num))
 
 
