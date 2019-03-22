@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask_apscheduler import APScheduler
-from crawler import juejin, kf_toutiao, tuiku, cnblog, importnew, imooc, bole, segment
+from crawler import juejin, kf_toutiao, tuiku, cnblog, importnew, imooc, bole, segment,infoq
 from util import myos
 
 
@@ -62,6 +62,13 @@ class Config:
             'hour': '0,8,11,18,22',                # 每天16：26分执行
             'minute': 59
         },
+        {
+            'id': 'infoq',              # segment 爬取任务
+            'func': 'crawler.infoq:start',  # 定时执行的 模块：函数
+            'trigger': 'cron',         # 定时执行，其他可选参数data,interval
+            'hour': '0,8,9,11,15,18,20,22',                # 每天16：26分执行
+            'minute': 23
+        },
     ]
 
 
@@ -84,7 +91,8 @@ def start(app):
         # importnew.ImportNew().start()
         # cnblog.CnBlog().start()
         # imooc.Imooc().start()
-        bole.Bole().start()
+        # bole.Bole().start()
         # jianshu.JianShu().start()
         # csdn.Csdn().start()
         # segment.Segment().start()
+        infoq.InfoQ().start()
