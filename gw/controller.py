@@ -7,11 +7,27 @@ from base import scheduled
 import html
 from bs4 import BeautifulSoup
 from conf.logger import log
+import re
+import json
 
 app = Flask(__name__)
 
 h = html2text.HTML2Text()
 # html to markdown
+
+infoq_headers = {
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Accept-Language': 'zh-CN, zh;q = 0.9, en;q = 0.8',
+    'Connection': 'keep-alive',
+    'Content-Type': 'application/json',
+    'Cookie': '_ga = GA1.2.764486653.1542099036;Hm_lvt_094d2af1d9a57fd9249b3fa259428445 = 1553218625;SERVERID = 1fa1f330efedec1559b3abbcb6e30f50 | 1553246716 | 1553246295;Hm_lpvt_094d2af1d9a57fd9249b3fa259428445 = 1553246716',
+    'Host': 'www.infoq.cn',
+    'Origin': 'https: // www.infoq.cn',
+    'Referer': 'https: // www.infoq.cn /',
+    'User-Agent': 'Mozilla/5.0 (Macintosh Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+
+}
 
 
 @app.route('/html2Markdown')
@@ -26,6 +42,8 @@ def getpicurl():
         return importNew(url)
     if third_type == 10:
         return segment(url)
+    if third_type == 11:
+        return infoq(url)
     return ""
 
 
@@ -35,6 +53,18 @@ def juejin(url):
     if res['s'] != 1:
         return ''
     s = res['d']['content']
+    r = h.handle(s)
+    return r
+
+
+def infoq(url):
+    # infoq url 就是id
+    param = {
+        "uuid": url
+    }
+    res = requests.post('https://www.infoq.cn/public/v1/article/getDetail',
+                        json.dumps(param), headers=infoq_headers).json()
+    s = res['data']['content']
     r = h.handle(s)
     return r
 
