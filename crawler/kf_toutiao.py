@@ -44,8 +44,7 @@ class KaiFaTouTiao(Crawler):
             soup = BeautifulSoup(html, "html.parser")
             # 所有的文章
             posts = soup.find_all("div", class_="post")
-            # 作者
-            author_wrap = soup.find("div", class_="m-b").h3.text
+           
             res_list = []
             # 多个文章解析
             for post in posts:
@@ -54,14 +53,16 @@ class KaiFaTouTiao(Crawler):
                 meta = post_content.find("div", class_="meta")
                 if param == None:
                     user_info = post.find(
-                        "div", class_="user-info").find("div", class_="user-avatar")
+                        "div", class_="user-info").find("div", class_="info")
                     # 作者
-                    p.author = user_info.a["title"].split("-")[0]
+                    p.author = user_info.h4.text
                     # postId
                     p.post_id = post_content.p.a["href"]
                     # 内容
                     p.content = post_content.p.a.string
                 else:
+                     # 作者
+                    author_wrap = soup.find("div", class_="m-b").h3.text
                     p.author = author_wrap
                     # postId
                     p.post_id = post_content["data-url"]

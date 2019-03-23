@@ -87,7 +87,7 @@ def start(app):
         # juejin.JueJin().start()
 
         # tuiku.TuiKu().start()
-        # kf_toutiao.KaiFaTouTiao().start()
+        kf_toutiao.KaiFaTouTiao().start()
         # importnew.ImportNew().start()
         # cnblog.CnBlog().start()
         # imooc.Imooc().start()
@@ -95,4 +95,4 @@ def start(app):
         # jianshu.JianShu().start()
         # csdn.Csdn().start()
         # segment.Segment().start()
-        infoq.InfoQ().start()
+        # infoq.InfoQ().start()
