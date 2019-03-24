@@ -27,7 +27,20 @@ infoq_headers = {
     'Origin': 'https: // www.infoq.cn',
     'Referer': 'https: // www.infoq.cn /',
     'User-Agent': 'Mozilla/5.0 (Macintosh Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
+}
 
+segment_headers = {
+    'authority': 'segmentfault.com',
+    'method': 'GET',
+    'path': '/a/1190000018604138',
+    'scheme': 'https',
+    'accept': 'text/html, application/xhtml+xml, application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8',
+    'cache-control': 'max-age = 0',
+    'cookie': '_ga=GA1.2.999831881.1526098418; PHPSESSID=web1~h6kd4m66rlhv83f0sof283p58j; _gid=GA1.2.641619629.1553329489; _gat=1; Hm_lvt_e23800c454aa573c0ccb16b52665ac26=1552999110,1553058348,1553329489,1553396821; Hm_lpvt_e23800c454aa573c0ccb16b52665ac26=1553396847',
+    'referer': 'https://segmentfault.com/',
+    'user-agent': 'Mozilla/5.0 (Macintosh Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
 }
 
 
@@ -72,9 +85,9 @@ def infoq(url):
 
 def segment(url):
 
-    proxy = myos.get_proxy()
-    log.info("user proxy %s", proxy)
-    res = requests.get(url, proxies={"http": "http://{}".format(proxy)})
+    # proxy = myos.get_proxy()
+    # log.info("user proxy %s", proxy)
+    res = requests.get(url, headers=segment_headers)
     # html文档
     htmls = res.text
     soup = BeautifulSoup(htmls, 'html.parser')
