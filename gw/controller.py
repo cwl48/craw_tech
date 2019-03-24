@@ -52,7 +52,7 @@ def getpicurl():
     third_type = int(third_type)
     if third_type == 1:
         return juejin(url)
-    if third_type == 1:
+    if third_type == 4:
         return cnblog(url)
     if third_type == 5:
         return importNew(url)
