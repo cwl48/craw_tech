@@ -73,7 +73,6 @@ def infoq(url):
 def segment(url):
 
     proxy = myos.get_proxy()
-    log.info(proxy)
     log.info("user proxy %s", proxy)
     res = requests.get(url, proxies={"http": "http://{}".format(proxy)})
     # html文档

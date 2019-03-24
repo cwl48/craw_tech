@@ -10,7 +10,7 @@ def is_linux():
 
 
 def get_proxy():
-    return requests.get("http://127.0.0.1:8002/get/").content
+    return requests.get("http://127.0.0.1:8002/get/").text
 
 
 def delete_proxy(proxy):
