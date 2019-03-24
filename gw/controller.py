@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from conf.logger import log
 import re
 import json
+from util import myos
 
 app = Flask(__name__)
 
@@ -70,7 +71,9 @@ def infoq(url):
 
 
 def segment(url):
-    res = requests.get(url)
+
+    proxy = myos.get_proxy()
+    res = requests.get(url, proxies={"http": "http://{}".format(proxy)})
     # html文档
     htmls = res.text
     soup = BeautifulSoup(htmls, 'html.parser')
