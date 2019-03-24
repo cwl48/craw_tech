@@ -87,7 +87,7 @@ def start(app):
         # juejin.JueJin().start()
 
         # tuiku.TuiKu().start()
-        kf_toutiao.KaiFaTouTiao().start()
+        # kf_toutiao.KaiFaTouTiao().start()
         # importnew.ImportNew().start()
         # cnblog.CnBlog().start()
         # imooc.Imooc().start()
@@ -96,3 +96,4 @@ def start(app):
         # csdn.Csdn().start()
         # segment.Segment().start()
         # infoq.InfoQ().start()
+        print("pass")
