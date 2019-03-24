@@ -135,7 +135,7 @@ def cnblog(url):
     imgList = article.find_all("img")
     for img in imgList:
         url_str = "https://www.chaoyer.com/csy/common/file/proxy?proxy=2&img=" + str(
-            img["data-src"])
+            img["src"])
         img_res = requests.get(url_str)
         img["src"] = eval(img_res.text.strip())
 
