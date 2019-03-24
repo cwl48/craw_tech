@@ -52,6 +52,8 @@ def getpicurl():
     third_type = int(third_type)
     if third_type == 1:
         return juejin(url)
+    if third_type == 1:
+        return cnblog(url)
     if third_type == 5:
         return importNew(url)
     if third_type == 10:
@@ -115,6 +117,19 @@ def importNew(url):
     soup = BeautifulSoup(htmls, 'html.parser')
 
     article = soup.find("div", class_="entry")
+    s = article.prettify()
+    r = h.handle(s)
+    return r
+
+
+def cnblog(url):
+    res = requests.get(url)
+    # html文档
+    htmls = res.text
+    h = html2text.HTML2Text()
+    soup = BeautifulSoup(htmls, 'html.parser')
+
+    article = soup.find("div", id="cnblogs_post_body")
     s = article.prettify()
     r = h.handle(s)
     return r
