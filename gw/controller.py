@@ -73,6 +73,7 @@ def infoq(url):
 def segment(url):
 
     proxy = myos.get_proxy()
+    print(proxy)
     res = requests.get(url, proxies={"http": "http://{}".format(proxy)})
     # html文档
     htmls = res.text
