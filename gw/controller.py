@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from conf.logger import log
 import re
 import json
+import time
 from util import myos
 
 app = Flask(__name__)
@@ -56,8 +57,6 @@ def getpicurl():
         return cnblog(url)
     if third_type == 5:
         return importNew(url)
-    # if third_type == 10:
-        # return segment(url)
     if third_type == 11:
         return infoq(url)
     return ""
@@ -138,7 +137,6 @@ def cnblog(url):
             img["src"])
         img_res = requests.get(url_str)
         img["src"] = eval(img_res.text.strip())
-
     s = article.prettify()
     r = h.handle(s)
     return r
