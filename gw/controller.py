@@ -57,6 +57,8 @@ def getpicurl():
         return cnblog(url)
     if third_type == 5:
         return importNew(url)
+    if third_type == 10:
+        return segment(url)
     if third_type == 11:
         return infoq(url)
     return ""
@@ -84,26 +86,27 @@ def infoq(url):
     return r
 
 
-# def segment(url):
+def segment(url):
 
-#     proxy = myos.get_proxy()
-#     log.info("user proxy %s", proxy)
-#     res = requests.get(url, headers=segment_headers, proxies={
-#                        'http': "http://".format(proxy)})
-#     # html文档
-#     htmls = res.text
-#     soup = BeautifulSoup(htmls, 'html.parser')
+    proxy = myos.get_proxy()
+    log.info("user proxy %s", proxy)
+    res = requests.get(url, headers=segment_headers)
+    # html文档
+    htmls = res.text
+    soup = BeautifulSoup(htmls, 'html.parser')
 
-#     article = soup.find("div", class_="article__content")
-#     imgList = article.find_all("img")
-#     for img in imgList:
-#         url_str = "https://www.chaoyer.com/csy/common/file/proxy?proxy=1&img=https://segmentfault.com" + str(
-#             img["data-src"])
-#         img_res = requests.get(url_str)
-#         img["src"] = eval(img_res.text.strip())
-#     s = article.prettify()
-#     r = h.handle(s)
-#     return r
+    article = soup.find("div", class_="article__content")
+    if article == None:
+        return ""
+    imgList = article.find_all("img")
+    for img in imgList:
+        url_str = "https://www.chaoyer.com/csy/common/file/proxy?proxy=1&img=https://segmentfault.com" + str(
+            img["data-src"])
+        img_res = requests.get(url_str)
+        img["src"] = eval(img_res.text.strip())
+    s = article.prettify()
+    r = h.handle(s)
+    return r
 
 
 def importNew(url):
@@ -129,7 +132,6 @@ def cnblog(url):
     soup = BeautifulSoup(htmls, 'html.parser')
 
     article = soup.find("div", id="cnblogs_post_body")
-
 
     imgList = article.find_all("img")
     for img in imgList:
