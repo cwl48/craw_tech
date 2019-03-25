@@ -87,9 +87,6 @@ def infoq(url):
 
 
 def segment(url):
-
-    proxy = myos.get_proxy()
-    log.info("user proxy %s", proxy)
     res = requests.get(url, headers=segment_headers)
     # html文档
     htmls = res.text
