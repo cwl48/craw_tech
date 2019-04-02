@@ -44,6 +44,17 @@ segment_headers = {
     'user-agent': 'Mozilla/5.0 (Macintosh Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'
 }
 
+jianshu_headers = {
+    "Accept": "application/json",
+    "Accept-Encoding": "gzip, deflate, br",
+    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8',
+    "Connection": "keep-alive",
+    "Cookie": "read_mode=day; default_font=font2; locale=zh-CN; Hm_lvt_0c0e9d9b1e7d617b3e6842e85b9fb068=1535546099,1535556627,1535612856,1535895145; remember_user_token=W1syNjMxODIzXSwiJDJhJDEwJHh4VS9JR3dHTGdpYk8wQTgxTDRzcy4iLCIxNTM1ODk1MjQ1LjY3NjA4MSJd--118c26ae7eb548ac928622ad299202a7f1092df8; _m7e_session=8afaf2a40989d2405aa45560db8701cd; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%222631823%22%2C%22%24device_id%22%3A%2216351e1d7f06f5-0c78b4667ea057-33627f06-1296000-16351e1d7f14ef%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%2C%22%24latest_referrer_host%22%3A%22www.baidu.com%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%2C%22%24latest_utm_source%22%3A%22desktop%22%2C%22%24latest_utm_medium%22%3A%22index-collections%22%2C%22%24latest_utm_campaign%22%3A%22maleskine%22%2C%22%24latest_utm_content%22%3A%22note%22%7D%2C%22first_id%22%3A%2216351e1d7f06f5-0c78b4667ea057-33627f06-1296000-16351e1d7f14ef%22%7D; Hm_lpvt_0c0e9d9b1e7d617b3e6842e85b9fb068=1535896571",
+    "Host": "www.jianshu.com",
+    "Referer": "https://www.jianshu.com/c/addfce4ca518",
+    "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"
+}
+
 
 @app.route('/html2Markdown')
 def getpicurl():
@@ -57,6 +68,8 @@ def getpicurl():
         return cnblog(url)
     if third_type == 5:
         return importNew(url)
+    if third_type == 8:
+        return jianshu(url)
     if third_type == 10:
         return segment(url)
     if third_type == 11:
@@ -83,6 +96,27 @@ def infoq(url):
                         json.dumps(param), headers=infoq_headers).json()
     s = res['data']['content']
     r = h.handle(s)
+    return r
+
+
+def jianshu(url):
+
+    res = requests.get(url, headers=jianshu_headers)
+    # html文档
+    htmls = res.text
+
+    h = html2text.HTML2Text()
+    soup = BeautifulSoup(htmls, 'html.parser')
+
+    article = soup.find("div", class_="show-content-free")
+    imgList = article.find_all("img")
+    for img in imgList:
+        url_str = "https:"+str(img["data-original-src"])
+        img["src"] = url_str
+
+    s = article.prettify()
+    r = h.handle(s)
+    r = r.replace('https://upload-\n', 'https://upload-')
     return r
 
 

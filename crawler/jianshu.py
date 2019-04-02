@@ -27,69 +27,63 @@ class JianShu(Crawler):
         self.third_name = "简书"
 
     def _craw(self, url, param=None, *args):
-        while True:
-            res = requests.get(url, params=param, headers=headers)
-            param["page"] = param["page"] + 1
-            if res.status_code == 200:
-                # response
-                body_json = res.json()
-                print(len(body_json))
-                if body_json:
-                    res_list = []
-                    for arti in body_json:
-                        arti = arti['object']['data']
-                        data = third_post_db.find_by_pt_id(arti['id'], self.third_id)
-                        if data is None:  # 大于30喜欢的加入
-                            # 构建
-                            post = ThirdPost(self.third_id, self.third_name,0)
-                            post.tags = param["tags"]
-                            # 顺序 文章id、标题、标签、作者、喜欢数、评论数、跳转url、创建时间
-                            post.post_id = arti['id']
-                            post.title = arti['title']
-                            post.author = arti['user']['nickname']
-                            post.content = arti['public_abbr']
-                            post.like_num = arti['likes_count']
-                            post.comment_num = arti['public_comments_count']
-                            post.redirect_url = 'https://www.jianshu.com/p/' + arti["slug"]
-                            post.creatime = arrow.get(
-                                arti['first_shared_at']).format('YYYY-MM-DD HH:mm:ss')
-                            res_list.append(post)
-                    log.info("[%s]爬取-> %s  %d条记录", self.third_name, url, len(res_list))
-                    self.batch_insert(res_list)
-                else:
-                    break
+        # while True:
+        res = requests.get(url, params=param, headers=headers)
+        # param["page"] = param["page"] + 1
+        if res.status_code == 200:
+            # response
+            body_json = res.json()
+            if body_json:
+                res_list = []
+                for arti in body_json:
+                    arti = arti['object']['data']
+                    data = third_post_db.find_by_pt_id(
+                        "jianshu-"+str(arti['id']), self.third_id)
+                    if data is None:
+                        # 构建
+                        post = ThirdPost(self.third_id, self.third_name, 0)
+                        post.tags = ''
+                        # 顺序 文章id、标题、标签、作者、喜欢数、评论数、跳转url、创建时间
+                        post.post_id = "jianshu-"+str(arti['id'])
+                        post.title = arti['title']
+                        post.author = arti['user']['nickname']
+                        post.content = arti['public_abbr']
+                        post.like_num = arti['likes_count']
+                        post.comment_num = arti['public_comments_count']
+                        post.redirect_url = 'https://www.jianshu.com/p/' + \
+                            arti["slug"]
+                        post.creatime = arrow.get(
+                            arti['first_shared_at']).format('YYYY-MM-DD HH:mm:ss')
+                        res_list.append(post)
+                log.info("[%s]爬取-> %s  %d条记录",
+                         self.third_name, url, len(res_list))
+                self.batch_insert(res_list)
+            # else:
+            #     break
 
     def start(self):
-        ## 简书专题
-        # java进阶干货
-        url1 = "https://www.jianshu.com/asimov/collections/slug/addfce4ca518/public_notes"
-        # 深入浅出golang
-        url2 = "https://www.jianshu.com/asimov/collections/slug/490b2e276912/public_notes"
-        # elasticsearch
-        url3 = "https://www.jianshu.com/asimov/collections/slug/c802bfa8b60e/public_notes"
-        # 数据结构和算法
-        url4 = "https://www.jianshu.com/asimov/collections/slug/2e97444f8079/public_notes"
-        # leetcode
-        url5 = "https://www.jianshu.com/asimov/collections/slug/b43cdd926c76/public_notes"
-        # 技术干货
-        url6 = "https://www.jianshu.com/asimov/collections/slug/38d96caffb2f/public_notes"
-        # 分布式架构
-        url7 = "https://www.jianshu.com/asimov/collections/slug/3f476518d832/public_notes"
-        # golang
-        url8 = "https://www.jianshu.com/asimov/collections/slug/3e489dead7a7/public_notes"
-        # spring
-        url9 = "https://www.jianshu.com/asimov/collections/slug/f0cf6eae1754/public_notes"
-        # 部署运维
-        url10 = "https://www.jianshu.com/asimov/collections/slug/5484c13010a0/public_notes"
-        # javascript进阶营
-        url11 = "https://www.jianshu.com/asimov/collections/slug/f63dac4d430e/public_notes"
-        param1 = {
-            "page": 1,
-            "count": 10,
-            "order_by": "added_at",
-            "tags": "前端"
-        }
-        self._craw(url11, param1)
+        # 简书专题
+        urls = [
+            "https://www.jianshu.com/asimov/collections/slug/addfce4ca518/public_notes",   # java进阶干货
+            "https://www.jianshu.com/asimov/collections/slug/490b2e276912/public_notes",   # 深入浅出golang
+            "https://www.jianshu.com/asimov/collections/slug/c802bfa8b60e/public_notes",  # elasticsearch
+            "https://www.jianshu.com/asimov/collections/slug/2e97444f8079/public_notes",  # 数据结构和算法
+            "https://www.jianshu.com/asimov/collections/slug/b43cdd926c76/public_notes",    # leetcode
+            "https://www.jianshu.com/asimov/collections/slug/38d96caffb2f/public_notes",    # 技术干货
+            "https://www.jianshu.com/asimov/collections/slug/3f476518d832/public_notes",    # 分布式架构
+            "https://www.jianshu.com/asimov/collections/slug/3e489dead7a7/public_notes",    # golang
+            "https://www.jianshu.com/asimov/collections/slug/f0cf6eae1754/public_notes",   # spring
+            "https://www.jianshu.com/asimov/collections/slug/5484c13010a0/public_notes",    # 部署运维
+            "https://www.jianshu.com/asimov/collections/slug/f63dac4d430e/public_notes"    # javascript进阶营
+        ]
+
+        for url in urls:
+            param = {
+                "page": 1,
+                "count": 10,
+                "order_by": "added_at"
+            }
+            self._craw(url, param)
 
 
 def start():
