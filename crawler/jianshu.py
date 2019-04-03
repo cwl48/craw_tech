@@ -74,7 +74,8 @@ class JianShu(Crawler):
             "https://www.jianshu.com/asimov/collections/slug/3e489dead7a7/public_notes",    # golang
             "https://www.jianshu.com/asimov/collections/slug/f0cf6eae1754/public_notes",   # spring
             "https://www.jianshu.com/asimov/collections/slug/5484c13010a0/public_notes",    # 部署运维
-            "https://www.jianshu.com/asimov/collections/slug/f63dac4d430e/public_notes"    # javascript进阶营
+            "https://www.jianshu.com/asimov/collections/slug/f63dac4d430e/public_notes",    # javascript进阶营
+            "https://www.jianshu.com/asimov/collections/slug/3a70d53ebdf3/public_notes"  # 深入浅出Netty源码剖析
         ]
 
         for url in urls:
