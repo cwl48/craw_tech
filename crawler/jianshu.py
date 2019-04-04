@@ -59,29 +59,24 @@ class JianShu(Crawler):
                          self.third_name, url, len(res_list))
                 self.batch_insert(res_list)
             # else:
-            #     break
+                # break
 
     def start(self):
         # 简书专题
         urls = [
             "https://www.jianshu.com/asimov/collections/slug/addfce4ca518/public_notes",   # java进阶干货
-            "https://www.jianshu.com/asimov/collections/slug/490b2e276912/public_notes",   # 深入浅出golang
             "https://www.jianshu.com/asimov/collections/slug/c802bfa8b60e/public_notes",  # elasticsearch
             "https://www.jianshu.com/asimov/collections/slug/2e97444f8079/public_notes",  # 数据结构和算法
-            "https://www.jianshu.com/asimov/collections/slug/b43cdd926c76/public_notes",    # leetcode
-            "https://www.jianshu.com/asimov/collections/slug/38d96caffb2f/public_notes",    # 技术干货
             "https://www.jianshu.com/asimov/collections/slug/3f476518d832/public_notes",    # 分布式架构
             "https://www.jianshu.com/asimov/collections/slug/3e489dead7a7/public_notes",    # golang
-            "https://www.jianshu.com/asimov/collections/slug/f0cf6eae1754/public_notes",   # spring
-            "https://www.jianshu.com/asimov/collections/slug/5484c13010a0/public_notes",    # 部署运维
-            "https://www.jianshu.com/asimov/collections/slug/f63dac4d430e/public_notes",    # javascript进阶营
-            "https://www.jianshu.com/asimov/collections/slug/3a70d53ebdf3/public_notes"  # 深入浅出Netty源码剖析
+            # javascript进阶营
+            "https://www.jianshu.com/asimov/collections/slug/f63dac4d430e/public_notes",
         ]
 
         for url in urls:
             param = {
                 "page": 1,
-                "count": 10,
+                "count": 50,
                 "order_by": "added_at"
             }
             self._craw(url, param)
