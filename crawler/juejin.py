@@ -1,12 +1,24 @@
 # -*- coding: utf-8 -*-
 import requests
 import arrow
+import json
 
 from base.crawler import Crawler
 from base.third_post import ThirdPost
 from db.third_post_db import third_post_db
 from conf.logger import log
 
+
+header = {
+    'Content-Type': 'application/json',
+    'Origin': 'https://juejin.im',
+    'Referer': 'https://juejin.im/timeline/recommended',
+    'User-Agent': 'Mozilla/5.0 (Macintosh Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+    'X-Agent': 'Juejin/Web',
+    'X-Legacy-Device-Id': '1554703133783',
+    'X-Legacy-Token': 'eyJhY2Nlc3NfdG9rZW4iOiJPZUN1dlFuc3EyMUVqbmNlIiwicmVmcmVzaF90b2tlbiI6ImpjZmdvZU1wTEY3N3RpVWgiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+    'X-Legacy-Uid': '57a358dc8ac247005f16735b'
+}
 
 # 2018-05-14 创建
 # 掘金字段 d.entrylist
@@ -19,6 +31,7 @@ from conf.logger import log
 # createdAt 创建时间
 # tags 标签 [] title标签名
 
+
 class JueJin(Crawler):
 
     def __init__(self):
@@ -27,22 +40,25 @@ class JueJin(Crawler):
         self.third_name = "掘金"
 
     def _craw(self, url, param=None, *args):
-        res = requests.get(url, params=param)
+        res = requests.post(url, json.dumps(param), headers=header)
         if res.status_code == 200:
             like_total = args[0]  # 至少喜欢的数量
             # juejin response
             body_json = res.json()
-            if body_json['s'] != 1:
-                log.error("爬取掘金失败" + body_json['m'])
+            if body_json['data'] is None:
+                log.error("爬取掘金失败" + body_json['errors'])
                 return
-            article_list = body_json['d']['entrylist']
+            article_list = body_json['data']['articleFeed']['items']['edges']
 
             res_list = []
-            for arti in article_list:
+            for artiCol in article_list:
 
-                data = third_post_db.find_by_pt_id(arti['objectId'], self.third_id)
+                arti = artiCol['node']
 
-                if data is None and arti['collectionCount'] > like_total:  # 大于30喜欢的加入
+                data = third_post_db.find_by_pt_id(
+                    arti['id'], self.third_id)
+
+                if data is None and arti['likeCount'] > like_total:  # 大于30喜欢的加入
                     # 构建
                     post = ThirdPost(self.third_id, self.third_name, 0)
                     tags = []
@@ -50,11 +66,11 @@ class JueJin(Crawler):
                         tags.append(t['title'])
                     post.tags = ",".join(tags)
                     # 顺序 文章id、标题、标签、作者、喜欢数、评论数、跳转url、创建时间
-                    post.post_id = arti['objectId']
+                    post.post_id = arti['id']
                     post.title = arti['title']
                     post.author = arti['user']['username']
                     post.content = arti['content']
-                    post.like_num = arti['collectionCount']
+                    post.like_num = arti['likeCount']
                     post.comment_num = arti['commentsCount']
                     post.redirect_url = arti['originalUrl']
                     post.creatime = arrow.get(
@@ -65,50 +81,58 @@ class JueJin(Crawler):
             self.batch_insert(res_list)
 
     def start(self):
-        # 资源
-        src = "web"
-        # 用户id
-        uid = "57a358dc8ac247005f16735b"
-        # token
-        token = "eyJhY2Nlc3NfdG9rZW4iOiJFU0tGeGtBOUxzemxSbzNLIiwicmVmcmVzaF90b2tlbiI6Ikk3SzlncG5mb3VtNkdqWDgiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ=="
-        # 设备id
-        device_id = "1551405338004"
         # 全部热门
-        url = "https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank"
+        url = "https://web-api.juejin.im/query"
         param = {
-            'src': src,
-            'uid': uid,
-            'token': token,
-            'limit': 20,
-            'device_id': device_id,
-            'category': "all",
-            'recomment': 1
+            "extensions": {
+                "query": {
+                    "id": "21207e9ddb1de777adeaca7a2fb38030"
+                }
+            },
+            "operationName": "",
+            "query": "",
+            "variables": {
+                     "first": 50,
+                     "after": "",
+                     "order": "POPULAR"
+            }
         }
         # 后端本周热门
-        urlBackend = "https://timeline-merger-ms.juejin.im/v1/get_entry_by_period"
         paramBackend = {
-            'src': src,
-            'uid': uid,
-            'token': token,
-            'limit': 20,
-            'device_id': device_id,
-            'category': "5562b419e4b00c57d9b94ae2",
-            'recomment': 1,
-            'period': 'week'
+            "extensions": {
+                "query": {
+                    "id": "21207e9ddb1de777adeaca7a2fb38030"
+                }
+            },
+            "operationName": "",
+            "query": "",
+            "variables": {
+                     "first": 50,
+                     "after": "",
+                     "category": "5562b419e4b00c57d9b94ae2",
+                     "order": "POPULAR"
+            }
         }
+        # 前端本周热门
         paramFront = {
-            'src': src,
-            'uid': uid,
-            'token': token,
-            'limit': 20,
-            'device_id': device_id,
-            'category': "5562b415e4b00c57d9b94ac8",
-            'recomment': 1,
-            'period': 'week'
+            "extensions": {
+                "query": {
+                    "id": "21207e9ddb1de777adeaca7a2fb38030"
+                }
+            },
+            "operationName": "",
+            "query": "",
+            "variables": {
+                     "first": 50,
+                     "after": "",
+                     "category": "5562b419e4b00c57d9b94ae2",
+                     "order": "POPULAR"
+            }
         }
-        self._craw(url, param, 40)
-        self._craw(urlBackend, paramBackend, 30)
-        self._craw(urlBackend, paramFront, 30)
+        self._craw(url, param, 30)
+        self._craw(url, paramBackend, 30)
+        self._craw(url, paramFront, 30)
+
 
 def start():
     JueJin().start()
