@@ -35,14 +35,9 @@ class _MySQL(object):
 
     def query_one(self, sql, param=None):
         cursor = self.get_cursor()
-        try:
-            cursor.execute(sql, param)
-            result = cursor.fetchone()
-        except Exception as e:
-            log.error("mysql query error: %s", e)
-            return None
-        finally:
-            cursor.close()
+        cursor.execute(sql, param)
+        result = cursor.fetchone()
+        cursor.close()
         return result
 
     def query(self, sql):
@@ -94,4 +89,3 @@ class _MySQL(object):
 
 
 mysql = _MySQL()
-
