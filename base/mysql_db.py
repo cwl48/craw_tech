@@ -42,14 +42,9 @@ class _MySQL(object):
 
     def query(self, sql):
         cursor = self.get_cursor()
-        try:
-            cursor.execute(sql, None)
-            result = cursor.fetchall()
-        except Exception as e:
-            log.error("mysql query error: %s", e)
-            return None
-        finally:
-            cursor.close()
+        cursor.execute(sql, None)
+        result = cursor.fetchall()
+        cursor.close()
         return result
 
     def execute(self, sql, param=None):
