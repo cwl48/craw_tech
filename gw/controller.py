@@ -130,7 +130,7 @@ def segment(url):
         return ""
     imgList = article.find_all("img")
     for img in imgList:
-        url_str = "http://localhost:7000/common/file/proxy?proxy=1&img=https://segmentfault.com" + str(
+        url_str = "http://localhost:8000/common/file/proxy?proxy=1&img=https://segmentfault.com" + str(
             img["data-src"])
         img_res = requests.get(url_str)
         img["src"] = eval(img_res.text.strip())
@@ -165,7 +165,7 @@ def cnblog(url):
 
     imgList = article.find_all("img")
     for img in imgList:
-        url_str = "http://localhost:7000/common/file/proxy?proxy=2&img=" + str(
+        url_str = "http://localhost:8000/common/file/proxy?proxy=2&img=" + str(
             img["src"])
         img_res = requests.get(url_str)
         img["src"] = eval(img_res.text.strip())
