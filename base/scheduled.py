@@ -91,7 +91,7 @@ def start(app):
     if myos.is_linux():
         do_start(app)
     else:
-        # juejin.JueJin().start()
+        juejin.JueJin().start()
 
         # tuiku.TuiKu().start()
         # kf_toutiao.KaiFaTouTiao().start()
