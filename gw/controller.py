@@ -55,7 +55,6 @@ jianshu_headers = {
     "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1"
 }
 
-
 @app.route('/html2Markdown')
 def getpicurl():
 
@@ -111,8 +110,10 @@ def jianshu(url):
     article = soup.find("div", class_="show-content-free")
     imgList = article.find_all("img")
     for img in imgList:
-        url_str = "https:"+str(img["data-original-src"])
-        img["src"] = url_str
+        us = "https:"+str(img["data-original-src"])
+        url_str = "http://localhost:8000/common/file/proxy?proxy=3&img=" + us
+        img_res = requests.get(url_str)
+        img["src"] = eval(img_res.text.strip())
 
     s = article.prettify()
     r = h.handle(s)
