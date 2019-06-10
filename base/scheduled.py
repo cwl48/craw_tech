@@ -91,7 +91,7 @@ def start(app):
     if myos.is_linux():
         do_start(app)
     else:
-        juejin.JueJin().start()
+        # juejin.JueJin().start()
 
         # tuiku.TuiKu().start()
         # kf_toutiao.KaiFaTouTiao().start()
@@ -100,7 +100,6 @@ def start(app):
         # imooc.Imooc().start()
         # bole.Bole().start()
         # jianshu.JianShu().start()
-        # csdn.Csdn().start()
         # segment.Segment().start()
         # infoq.InfoQ().start()
         print("pass")

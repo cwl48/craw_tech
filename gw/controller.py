@@ -77,11 +77,23 @@ def getpicurl():
 
 
 def juejin(url):
-
     res = requests.get(url).json()
     if res['s'] != 1:
         return ''
-    s = res['d']['content']
+    htmls = res['d']['content']
+
+    h = html2text.HTML2Text()
+    soup = BeautifulSoup(htmls, 'html.parser')
+
+    imgList = soup.find_all("img")
+    for img in imgList:
+        print(img["src"])
+        url_str = "http://localhost:8000/common/file/proxy?proxy=4&img=" + str(
+            img["src"])
+        img_res = requests.get(url_str)
+        img["src"] = eval(img_res.text.strip())
+   
+    s = soup.prettify()
     r = h.handle(s)
     return r
 
