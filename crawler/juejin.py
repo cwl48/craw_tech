@@ -15,8 +15,8 @@ header = {
     'Referer': 'https://juejin.im/timeline/recommended',
     'User-Agent': 'Mozilla/5.0 (Macintosh Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
     'X-Agent': 'Juejin/Web',
-    'X-Legacy-Device-Id': '1557555376151',
-    'X-Legacy-Token': 'eyJhY2Nlc3NfdG9rZW4iOiJKdXU2WlJIQzVhU3F3dnRJIiwicmVmcmVzaF90b2tlbiI6IlhvUlhKeFVSa1NZc2RhTGkiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+    'X-Legacy-Device-Id': '1568031270913',
+    'X-Legacy-Token': 'eyJhY2Nlc3NfdG9rZW4iOiJUYXVmV3Z2MTNCNVdqUkJDIiwicmVmcmVzaF90b2tlbiI6IldjeFJZWGtmY2t1QW5FSGMiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
     'X-Legacy-Uid': '57a358dc8ac247005f16735b'
 }
 
@@ -45,7 +45,6 @@ class JueJin(Crawler):
             like_total = args[0]  # 至少喜欢的数量
             # juejin response
             body_json = res.json()
-            print(body_json)
             if body_json['data'] is None:
                 log.error("爬取掘金失败" + body_json['errors'])
                 return
