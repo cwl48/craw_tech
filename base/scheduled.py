@@ -75,6 +75,13 @@ class Config:
             'trigger': 'cron',         # 定时执行，其他可选参数data,interval
             'hour': '0,8,9,11,15,18,20,22',                # 每天16：26分执行
             'minute': 49
+        },
+        {
+            'id': 'kaifatoutiao',              # segment 爬取任务
+            'func': 'crawler.kf_toutiao:start',  # 定时执行的 模块：函数
+            'trigger': 'cron',         # 定时执行，其他可选参数data,interval
+            'hour': '3',                # 每天16：26分执行
+            'minute': 1
         }
     ]
 
