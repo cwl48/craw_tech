@@ -6,13 +6,13 @@ from util import myos
 
 class Config:
     JOBS = [
-        {
-            'id': 'juejin',              # 掘金文章爬取任务
-            'func': 'crawler.juejin:start',  # 定时执行的 模块：函数
-            'trigger': 'cron',         # 定时执行，其他可选参数data,interval
-            'hour': '0,5,8,10,11,13,16,18,19,20,22,23',                # 每天16：26分执行
-            'minute': 1
-        },
+        # {
+        #     'id': 'juejin',              # 掘金文章爬取任务
+        #     'func': 'crawler.juejin:start',  # 定时执行的 模块：函数
+        #     'trigger': 'cron',         # 定时执行，其他可选参数data,interval
+        #     'hour': '0,5,8,10,11,13,16,18,19,20,22,23',                # 每天16：26分执行
+        #     'minute': 1
+        # },
         {
             'id': 'kf_toutiao',              # 开发者头条爬取任务
             'func': 'crawler.kf_toutiao:start',  # 定时执行的 模块：函数
