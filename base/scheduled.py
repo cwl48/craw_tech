@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from flask_apscheduler import APScheduler
-from crawler import juejin, kf_toutiao, tuiku, cnblog, importnew, imooc, bole, segment,infoq,jianshu
+from crawler import juejin, kf_toutiao, tuiku, cnblog, importnew, imooc, bole, segment, infoq, jianshu
 from util import myos
 
 
@@ -48,13 +48,13 @@ class Config:
             'hour': '0,5,8,10,11,13,16,18,19,20,22,23',                # 每天16：26分执行
             'minute': 40
         },
-        {
-            'id': 'bole',              # 伯乐在线 爬取任务
-            'func': 'crawler.bole:start',  # 定时执行的 模块：函数
-            'trigger': 'cron',         # 定时执行，其他可选参数data,interval
-            'hour': '0,5,8,10,11,13,16,18,19,20,22,23',                # 每天16：26分执行
-            'minute': 50
-        },
+        # {
+        #     'id': 'bole',              # 伯乐在线 爬取任务
+        #     'func': 'crawler.bole:start',  # 定时执行的 模块：函数
+        #     'trigger': 'cron',         # 定时执行，其他可选参数data,interval
+        #     'hour': '0,5,8,10,11,13,16,18,19,20,22,23',                # 每天16：26分执行
+        #     'minute': 50
+        # },
         {
             'id': 'segment',              # segment 爬取任务
             'func': 'crawler.segment:start',  # 定时执行的 模块：函数
@@ -100,12 +100,11 @@ def start(app):
     else:
         # juejin.JueJin().start()
 
-        # tuiku.TuiKu().start()
+        tuiku.TuiKu().start()
         # kf_toutiao.KaiFaTouTiao().start()
         # importnew.ImportNew().start()
         # cnblog.CnBlog().start()
         # imooc.Imooc().start()
-        # bole.Bole().start()
         # jianshu.JianShu().start()
         # segment.Segment().start()
         # infoq.InfoQ().start()
